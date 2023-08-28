@@ -9,6 +9,9 @@ cd DockerFolder
 #then, in "docker-compose.yml", change the PATH to the path of the location of the current unzipped folder.
         volumes:
         - "C:/Users/Benoit Couraud/OneDrive - Université Nice Sophia Antipolis/projet/Greenmov/Activity 3/NoiseForecasting/DeploymentDocker/DockerFolder:/usr/src/appnoise"
+Indeed, in the docker-compose.yml, You should change the path of the volumes to match your own directory: replace "C:/Users/Benoit Couraud/OneDrive - Université Nice Sophia Antipolis/projet/Greenmov/Activity 3/NoiseForecasting/Final_2023_08_21/DockerFolder" with the path to your directory:
+
+
 
 In the code, you should change:
 - TYPES_OF_SENSOR = [  "Lenval_Noise" ] --> put the name of your SENSOR, e.g: "YOUR_SENSOR_NAME"
@@ -33,9 +36,10 @@ you should change it to match your own data format.
 -CSV_TIME_FORMAT= '%Y-%m-%d %H:%M:%S'  you should change it so it matches the format you chose for the time in your csv file
 You should also specify the Attribute that you want to forecast, in this case, Lamax2 for example, but could be LAeq
 -ATTRIBUTE_TO_FORECAST='Lamax2'
+
+ You also might have to change the data model. This is defined in the send_to_context_broker function.
  
-nano docker-compose.yml 
-/home/greenmov/services/noiseforecasting/DockerFolder/
+Finally, you can run: docker compose up -d
 
 
 Then, to make it run properly:
