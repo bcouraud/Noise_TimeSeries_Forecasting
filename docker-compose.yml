@@ -1,0 +1,26 @@
+version: "3"
+services:
+    noiseforecastgreenmov:
+        container_name: noiseforecastgreenmov
+        build: .
+        expose:
+         - 8910
+         - 8000
+        command: uvicorn fastAPI:app --host 0.0.0.0
+        volumes:
+         - "C:/Users/Benoit Couraud/OneDrive - Université Nice Sophia Antipolis/projet/Greenmov/Activity 3/NoiseForecasting/Final_2023_08_21/DockerFolder:/usr/src/appnoise"
+        ports:
+         - 8910:8000
+        restart: always
+        environment:
+         - TZ=Europe/Paris
+
+#networks:
+#  default:
+#    external:
+#      name: networkdefault
+
+# volumes:
+#     dbdata:
+#     grafana-storage:
+#  - "/home/imredd-tip/services/trafficforecasting/DockerFolder:/usr/src/appnoise"
